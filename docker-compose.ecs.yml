@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  web:
+    image: 747908041256.dkr.ecr.us-east-2.amazonaws.com/ecs-tutorial:latest
+    restart: always
+    links:
+      - redis
+    ports:
+      - 80:80
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: web
+        awslogs-region: us-east-2
+        awslogs-stream-prefix: web
+
+  redis:
+    image: redis:5.0.5-alpine
+    volumes:
+      - redis_data:/data
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: redis
+        awslogs-region: us-east-2
+        awslogs-stream-prefix: redis
+
+
+volumes:
+  redis_data:
+    # See ecs-params.yml for volume properties
+    

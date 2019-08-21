@@ -1,0 +1,25 @@
+# Reference
+# https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cmd-ecs-cli-compose-ecsparams.html
+version: 1
+task_definition:
+  ecs_network_mode: bridge  # or host
+  task_execution_role: ecsTaskExecutionRole  # required for cloudwatch
+  task_size:
+    mem_limit: 256
+  #  cpu_limit: 512
+
+  services:
+    web:
+      #mem_limit: 256
+      secrets:
+        - value_from: /web/flask_env
+          name: FLASK_ENV
+    redis:
+      #mem_limit: 128
+
+  docker_volumes:
+    - name: redis_data
+      scope: shared # To make sure that volume is not deleted when task is updated or stopped
+      autoprovision: true
+      driver: local
+

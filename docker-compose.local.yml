@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - 80:80
+
+    environment:
+      - FLASK_ENV=development
+      - REDIS_HOST=redis
+    
+  redis:
+    image: redis:5.0.5-alpine
+    ports:
+      # host:container format
+      - 6479:6379

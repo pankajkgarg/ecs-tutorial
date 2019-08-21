@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>ECS Tutorial</title>
+    <meta name="author" content="Pankaj Garg">
+
+    <style type="text/css">
+    	section {
+    		margin-bottom: 4em;
+    	}
+    </style>
+
+  </head>
+  <body>
+  	<div class="container">
+	  	<div class="justify-content-center">
+	  		<section class="text-center" >
+			    <h1>Welcome to ECS Tutorial!</h1>
+			    <h2> You are visitor no. {{ visitor_count}} </h2>
+			</section>
+
+			<section>
+			    <strong> ECS Environmental variables for redis container </strong>
+			    <pre>{{ environ_data }}
+				</pre>
+			</section>
+
+			<section>
+				<strong> Redis container memory info </strong>
+				<pre> {{ redis_data }}
+				</pre>
+			</section>
+		</div>
+	</div>
+
+   
+  </body>
+</html>
